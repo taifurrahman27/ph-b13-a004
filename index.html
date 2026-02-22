@@ -33,15 +33,15 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-5">
             <div class="bg-[#FFFFFF] text-[#323B49] p-5 rounded-xl">
                 <h6>Total</h6>
-                <h4 class="text-[#002C5C] font-bold">8</h4>
+                <h4 id="total-count" class="text-[#002C5C] font-bold">0</h4>
             </div>
             <div class="bg-[#FFFFFF] text-[#323B49] p-5 rounded-xl">
                 <h6>Interview</h6>
-                <h4 class="text-[#10B981] font-bold">0</h4>
+                <h4 id="interview-count" class="text-[#10B981] font-bold">0</h4>
             </div>
             <div class="bg-[#FFFFFF] text-[#323B49] p-5 rounded-xl">
                 <h6>Rejected</h6>
-                <h4 class="text-[#EF4444] font-bold">0</h4>
+                <h4 id="rejected-count" class="text-[#EF4444] font-bold">0</h4>
             </div>
         </div>
     </header>
@@ -49,7 +49,7 @@
     <main>
         <section class="flex justify-between mb-6">
             <h1 class="text-xl text-[#002C5C] font-bold">Available Jobs</h1>
-            <p class="text-[#64748B] font-bold">8 jobs</p>
+            <p class="text-[#64748B] font-bold">10 jobs</p>
         </section>
         <section class="my-4">
             <button class="btn btn-outline w-20 bg-blue-700 text-white">All</button>
@@ -57,7 +57,7 @@
             <button class="btn btn-outline w-20 bg-[#FFFFFF] text-[#64748B]">Rejected</button>
         </section>
         <section>
-            <div class="cards space-y-4">
+            <div id="all-cards" class="cards space-y-4">
                 <div class="card-1 p-6 bg-[#FFFFFF]">
                     <div class="job-title flex justify-between">
                         <div class="mb-3.5">
@@ -335,8 +335,8 @@
         </section>
 
         <section class="bg-white my-4 py-28 flex flex-col items-center text-center">
-            <div>
-                <img class="max-w-24 mb-3" src="/jobs.png" alt="No Job">
+            <div class="max-w-24 mb-3">
+                <img src="/jobs.png" alt="No Job">
             </div>
             <div>
                 <h4 class="text-2xl font-bold text-[#002C5C]">
