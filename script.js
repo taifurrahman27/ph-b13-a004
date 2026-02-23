@@ -124,6 +124,3 @@ function renderInterview() {
         filterSection.appendChild(div);
     }
 }
-
-
-
