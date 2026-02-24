@@ -8,17 +8,23 @@ let rejectedCount = document.getElementById("rejected-count");
 
 const mainContainer = document.querySelector("main");
 const allCards = document.getElementById("all-cards");
-const deleteBtn = document.querySelectorAll("i");
+const deleteBtn = document.getElementById("delete-button");
 
 document.addEventListener("click", function (event) {
-    console.log(event);
-
-    const jobTitleParent = event.target.closest(".job-title").parentNode;
     if (event.target.closest("i")) {
+        const jobTitleParent = event.target.closest(".job-title").parentNode;
+        const companyName = jobTitleParent.querySelector(".company-name")?.innerText;
+
+        if (companyName) {
+            interviewList = interviewList.filter(item => item.companyName != companyName);
+            rejectedList = rejectedList.filter(item => item.companyName != companyName);
+        }
+
         jobTitleParent.remove();
+        computeCount();
+        updateNoJobsState();
     }
 });
-
 const allJobsBtn = document.getElementById("all-jobs-btn");
 const interviewBtn = document.getElementById("interview-btn");
 const rejectedBtn = document.getElementById("rejected-btn");
@@ -33,7 +39,6 @@ function computeCount() {
 }
 
 computeCount();
-
 
 function toggleBtn(id) {
 
@@ -56,24 +61,17 @@ function toggleBtn(id) {
         allCards.classList.add("hidden");
         filterSection.classList.remove("hidden");
         renderInterview();
-        if (interviewList.length == 0) {
-            noJobSection.classList.remove("hidden");
-        }
     }
     else if (id == "all-jobs-btn") {
         allCards.classList.remove("hidden");
         filterSection.classList.add("hidden");
-        noJobSection.classList.add("hidden");
     }
     else if (id == "rejected-btn") {
         allCards.classList.add("hidden");
         filterSection.classList.remove("hidden");
-        noJobSection.classList.remove("hidden");
         renderRejected();
-        if (rejectedList.length == 0) {
-            noJobSection.classList.remove("hidden");
-        }
     }
+    updateNoJobsState();
 
 }
 
@@ -109,6 +107,8 @@ mainContainer.addEventListener("click", function (event) {
             renderRejected();
         }
         computeCount();
+        updateNoJobsState();
+
     }
 
     else if (event.target.classList.contains("rejected-btn")) {
@@ -142,11 +142,13 @@ mainContainer.addEventListener("click", function (event) {
         }
 
         computeCount();
-
+        updateNoJobsState();
     }
 })
 
 function renderInterview() {
+    filterSection.classList.remove("space-y-4");
+    filterSection.classList.add("grid", "grid-cols-1", "md:grid-cols-2", "gap-4");
     filterSection.innerHTML = ""
 
     for (let interview of interviewList) {
@@ -160,7 +162,7 @@ function renderInterview() {
                             <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">${interview.companyName}</h5>
                             <p class="position text-[#64748B]">${interview.position}</p>
                         </div>
-                        <button><i class="fa-regular fa-trash-can"></i></button>
+                        <button id="delete-button"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
                     <p class="location-salary text-[#64748B] my-3 text-sm">${interview.locationSalary}</p>
                     <button class="job-status text-[#002C5C] bg-[#EEF4FF] py-2 px-3 mb-2 text-sm">INTERVIEW</button>
@@ -181,6 +183,8 @@ function renderInterview() {
 }
 
 function renderRejected() {
+    filterSection.classList.remove("space-y-4");
+    filterSection.classList.add("grid", "grid-cols-1", "md:grid-cols-2", "gap-4");
     filterSection.innerHTML = ""
 
     for (let rejected of rejectedList) {
@@ -194,7 +198,7 @@ function renderRejected() {
                             <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">${rejected.companyName}</h5>
                             <p class="position text-[#64748B]">${rejected.position}</p>
                         </div>
-                        <button><i class="fa-regular fa-trash-can"></i></button>
+                        <button id="delete-button"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
                     <p class="location-salary text-[#64748B] my-3 text-sm">${rejected.locationSalary}</p>
                     <button class="job-status text-[#002C5C] bg-[#EEF4FF] py-2 px-3 mb-2 text-sm">REJECTED</button>
@@ -211,5 +215,20 @@ function renderRejected() {
                     </div>
         `
         filterSection.appendChild(div);
+    }
+}
+
+function updateNoJobsState() {
+    if (currentStatus == "interview-btn") {
+        noJobSection.classList.toggle("hidden", interviewList.length !== 0);
+    }
+    else if (currentStatus == "rejected-btn") {
+        noJobSection.classList.toggle("hidden", rejectedList.length !== 0);
+    }
+    else {
+        const isAllView = currentStatus == "all-jobs-btn" || currentStatus == "all";
+        if (isAllView) {
+            noJobSection.classList.toggle("hidden", allCards.children.length !== 0);
+        }
     }
 }
