@@ -31,7 +31,7 @@
 
 </head>
 
-<body class="bg-gray-100 px-5 md:px-20 xl:px-32">
+<body class="bg-gray-100 p-5 md:px-10 xl:px-20">
     <header>
         <h1 class="text-3xl text-[#002C5C] font-bold my-5">Job Application Tracker</h1>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-5">
@@ -64,17 +64,18 @@
                 class="btn btn-outline w-20 bg-white text-[#64748B]">Rejected</button>
         </section>
 
-        <section id="filter-section" class="cards space-y-4 md:grid grid-cols-2 gap-2 hidden">
+        <section id="filter-section" class="hidden space-y-4">
+
         </section>
 
-        <section id="all-cards" class="cards space-y-4 md:grid grid-cols-2 gap-2">
+        <section id="all-cards" class="space-y-4">
             <div class="card-1 p-6 bg-[#FFFFFF]">
                 <div class="job-title flex justify-between">
                     <div class="mb-3.5">
                         <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">Mobile First Corp</h5>
                         <p class="position text-[#64748B]">React Native Developer</p>
                     </div>
-                    <button><i class="fa-regular fa-trash-can"></i></button>
+                    <button"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
                 <p class="location-salary text-[#64748B] my-3 text-sm">Los Angeles, CA
                     •
@@ -355,8 +356,8 @@
         </section>
 
 
-        <section class="bg-white my-4 py-28 flex flex-col items-center text-center">
-            <div class="max-w-24 mb-3">
+        <section id="no-jobs-section" class="hidden bg-white my-4 py-28 items-center text-center">
+            <div class="justify-items-center mb-3">
                 <img src="./jobs.png" alt="No Job">
             </div>
             <div>
