@@ -31,7 +31,7 @@
 
 </head>
 
-<body class="bg-gray-100 p-5 md:px-10 xl:px-20">
+<body class="bg-gray-100 p-15 md:px-10 xl:px-20">
     <header>
         <h1 class="text-3xl text-[#002C5C] font-bold my-5">Job Application Tracker</h1>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-5">
@@ -53,7 +53,7 @@
     <main>
         <section class="flex justify-between mb-6">
             <h1 class="text-xl text-[#002C5C] font-bold">Available Jobs</h1>
-            <p class="text-[#64748B] font-bold">10 jobs</p>
+            <p id="available-jobs-count" class="text-[#64748B] font-bold">0 jobs</p>
         </section>
         <section class="my-4">
             <button id="all-jobs-btn" onclick="toggleBtn('all-jobs-btn')"
@@ -69,7 +69,7 @@
         </section>
 
         <section id="all-cards" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="card-1 p-6 bg-[#FFFFFF]">
+            <div class="card-1 rounded-lg p-6 bg-[#FFFFFF]">
                 <div class="job-title flex justify-between">
                     <div class="mb-3.5">
                         <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">Mobile First Corp</h5>
@@ -97,7 +97,7 @@
                     </button>
                 </div>
             </div>
-            <div class="card-2 p-6 bg-[#FFFFFF]">
+            <div class="card-2 rounded-lg p-6 bg-[#FFFFFF]">
                 <div class="job-title flex justify-between">
                     <div class="mb-3.5">
                         <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">WebFlow Agency</h5>
@@ -125,7 +125,7 @@
                     </button>
                 </div>
             </div>
-            <div class="card-3 p-6 bg-[#FFFFFF]">
+            <div class="card-3 rounded-lg p-6 bg-[#FFFFFF]">
                 <div class="job-title flex justify-between">
                     <div class="mb-3.5">
                         <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">DataViz Solutions</h5>
@@ -154,7 +154,7 @@
                     </button>
                 </div>
             </div>
-            <div class="card-4 p-6 bg-[#FFFFFF]">
+            <div class="card-4 rounded-lg p-6 bg-[#FFFFFF]">
                 <div class="job-title flex justify-between">
                     <div class="mb-3.5">
                         <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">CloudFirst Inc</h5>
@@ -182,7 +182,7 @@
                     </button>
                 </div>
             </div>
-            <div class="card-5 p-6 bg-[#FFFFFF]">
+            <div class="card-5 rounded-lg p-6 bg-[#FFFFFF]">
                 <div class="job-title flex justify-between">
                     <div class="mb-3.5">
                         <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">Innovation Labs</h5>
@@ -210,7 +210,7 @@
                     </button>
                 </div>
             </div>
-            <div class="card-6 p-6 bg-[#FFFFFF]">
+            <div class="card-6 rounded-lg p-6 bg-[#FFFFFF]">
                 <div class="job-title flex justify-between">
                     <div class="mb-3.5">
                         <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">MegaCorp Solutions</h5>
@@ -239,7 +239,7 @@
                     </button>
                 </div>
             </div>
-            <div class="card-7 p-6 bg-[#FFFFFF]">
+            <div class="card-7 rounded-lg p-6 bg-[#FFFFFF]">
                 <div class="job-title flex justify-between">
                     <div class="mb-3.5">
                         <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">StartupXYZ</h5>
@@ -267,7 +267,7 @@
                     </button>
                 </div>
             </div>
-            <div class="card-8 p-6 bg-[#FFFFFF]">
+            <div class="card-8 rounded-lg p-6 bg-[#FFFFFF]">
                 <div class="job-title flex justify-between">
                     <div class="mb-3.5">
                         <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">TechCorp Industries</h5>
@@ -296,7 +296,7 @@
                     </button>
                 </div>
             </div>
-            <div class="card-9 p-6 bg-[#FFFFFF]">
+            <div class="card-9 rounded-lg p-6 bg-[#FFFFFF]">
                 <div class="job-title flex justify-between">
                     <div class="mb-3.5">
                         <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">Shopping zone Bd Limited
@@ -325,7 +325,7 @@
                     </button>
                 </div>
             </div>
-            <div class="card-10 p-6 bg-[#FFFFFF]">
+            <div class="card-10 rounded-lg p-6 bg-[#FFFFFF]">
                 <div class="job-title flex justify-between">
                     <div class="mb-3.5">
                         <h5 class="company-name font-bold text-[#002C5C] mb-2 text-xl ">Braintrust</h5>

@@ -5,6 +5,7 @@ let currentStatus = "all"
 let totalCount = document.getElementById("total-count");
 let interviewCount = document.getElementById("interview-count");
 let rejectedCount = document.getElementById("rejected-count");
+let availableJobsCount = document.getElementById("available-jobs-count");
 
 const mainContainer = document.querySelector("main");
 const allCards = document.getElementById("all-cards");
@@ -24,7 +25,15 @@ document.addEventListener("click", function (event) {
         computeCount();
         updateNoJobsState();
     }
+    if (availableJobsCount) {
+        if (currentStatus == "interview-btn") {
+            availableJobsCount.innerText = `${interviewList.length} ${interviewList.length === 1 ? "job" : "jobs"}`;
+        } else if (currentStatus == "rejected-btn") {
+            availableJobsCount.innerText = `${rejectedList.length} ${rejectedList.length === 1 ? "job" : "jobs"}`;
+        }
+    }
 });
+
 const allJobsBtn = document.getElementById("all-jobs-btn");
 const interviewBtn = document.getElementById("interview-btn");
 const rejectedBtn = document.getElementById("rejected-btn");
@@ -32,12 +41,18 @@ const rejectedBtn = document.getElementById("rejected-btn");
 const filterSection = document.getElementById("filter-section");
 const noJobSection = document.getElementById("no-jobs-section");
 
+
 function computeCount() {
     totalCount.innerText = allCards.children.length;
+    const totalJobs = allCards.children.length;
+    totalCount.innerText = totalJobs;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectedList.length;
-}
 
+    if (availableJobsCount) {
+        availableJobsCount.innerText = `${totalJobs} ${totalJobs === 1 ? "job" : "jobs"}`;
+    }
+}
 computeCount();
 
 function toggleBtn(id) {
@@ -154,7 +169,7 @@ function renderInterview() {
     for (let interview of interviewList) {
 
         let div = document.createElement("div");
-        div.className = "card-1 p-6 bg-[#FFFFFF]"
+        div.className = "card-1 rounded-lg p-6 bg-[#FFFFFF]"
 
         div.innerHTML = `
                     <div class="job-title flex justify-between">
@@ -190,7 +205,7 @@ function renderRejected() {
     for (let rejected of rejectedList) {
 
         let div = document.createElement("div");
-        div.className = "card-1 p-6 bg-[#FFFFFF]"
+        div.className = "card-1 rounded-lg p-6 bg-[#FFFFFF]"
 
         div.innerHTML = `
                     <div class="job-title flex justify-between">
